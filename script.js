@@ -19,7 +19,7 @@ console.log("window.scrollY", window.scrollY);
 // };
 
 window.onscroll = function () {
-  if (window.scrollY > 200 && window.scrollY < 400) {
+  if (window.scrollY > 200 && window.scrollY < 480) {
     firstDivHeader.style.backgroundColor = "white";
     firstDivHeader.style.zIndex = "1";
     firstDivHeader.style.transition = "all 0.25s linear";
@@ -33,11 +33,48 @@ window.onscroll = function () {
 
 // Animazione M
 
-const image = document.querySelectorAll("svg g")[1];
+const image = document.querySelectorAll("svg g");
+let lastNumber1;
+// document.getElementById("m1").setAttribute("transform", "rotate(45 30 50)");
+setInterval(() => {
+  let number = Math.floor(Math.random() * image.length);
+  image[number].setAttribute("transition", "all 220");
+  image[number].setAttribute("visibility", "hidden");
+  if (lastNumber1) {
+    image[lastNumber1].setAttribute("visibility", "visible");
+  }
+  lastNumber1 = number;
+}, 220);
+
+let lastNumber2;
+setInterval(() => {
+  let number = Math.floor(Math.random() * image.length);
+  image[number].setAttribute("transition", "all 240");
+  image[number].setAttribute("visibility", "hidden");
+  if (lastNumber2) {
+    image[lastNumber2].setAttribute("visibility", "visible");
+  }
+  lastNumber2 = number;
+}, 240);
+
+let lastNumber3;
+setInterval(() => {
+  let number = Math.floor(Math.random() * image.length);
+  image[number].setAttribute("transition", "all 200");
+  image[number].setAttribute("visibility", "hidden");
+  if (lastNumber3) {
+    image[lastNumber3].setAttribute("visibility", "visible");
+  }
+  lastNumber3 = number;
+}, 200);
+// console.log("image of g", image[24].innerHTML);
+// for (let i = 0; i < 50; i++) {
+//   console.log("image", image[i].textContent);
+// }
 let manyM = image.ariaLabel;
-console.log("manyM", manyM);
-console.log("manyM", manyM[55]);
-console.log("manyM", manyM.length);
+console.log("image", image);
+// console.log("manyM", manyM[55]);
+// console.log("manyM", manyM.length);
 // console.log("image.innerText", typeOf manyM );
 
 let numPrecedente;
