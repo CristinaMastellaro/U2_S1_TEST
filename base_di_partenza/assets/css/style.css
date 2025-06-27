@@ -1,5 +1,6 @@
 body {
     font-family: "Roboto", sans-serif;
+    position: relative
 }
 
 /* HEADER */
@@ -8,7 +9,8 @@ body {
 
 header {
     background-color: #ffc017;
-    width: 100%;
+    position: relative;
+    /* width: 100%; */
 }
 
 header > div:nth-child(1) {
@@ -50,7 +52,7 @@ nav ul li a {
 
 header > div:nth-child(2) {
     display: flex;
-    width: 100%;
+    /* width: 100%; */
     border-bottom: 1px solid black;
     padding-left: 1em;
 }
@@ -102,9 +104,14 @@ main section:nth-child(1) {
     border-bottom: 1px solid lightgray;
 }
 
-main section:nth-child(1) > div {
+main section:nth-child(1) > div:first-child {
     display: flex;
     align-items: center;
+}
+
+main section:nth-child(1) > div:last-child {
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 main section:nth-child(1) > div img {
@@ -225,7 +232,6 @@ aside nav ul li a {
     display: flex;
     justify-content: space-between;
     margin-bottom: 2.5em;
-    width: 90%
 }
 
 #sectionWithArticles article div {
@@ -233,7 +239,7 @@ aside nav ul li a {
 }
 
 #sectionWithArticles article img:last-child {
-    width: 35%;
+    width: 30%;
     height: 100%;
 }
 
@@ -274,8 +280,147 @@ aside nav ul li a {
 }
 
 #sectionWithArticles article div div.lastDivArticle div {
-    /* width: 60%; */
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+/* Tablet! */
+
+@media screen and (min-width: 768px) {
+
+    /* Header */
+
+    header div {
+        padding-left: 2.5em;
+    }
+
+    /* header > div:nth-child(1) {
+        transition: all 2s linear;
+    } */
+
+    header div:nth-child(1) li:nth-child(1), header div:nth-child(1) li:nth-child(2), header div:nth-child(1) li:nth-child(3) {
+    display: block;
+    }
+
+    nav ul li {
+    margin-right: 1em;
+    }
+
+    header div:nth-child(1) {
+        position: sticky;
+        top: 0;
+    }
+
+    header div:nth-child(2) div {
+        width: 60%;
+    }
+
+    header svg {
+        display: block;
+        height: auto;
+        width: 40%;
+        transform: translateX(100px);
+    }
+
+    header div div button {
+        width: 50%;
+    }
+
+    /* Main */
+
+    main {
+        padding-left: 2.5em;
+    }
+
+    main section:nth-child(1) {
+        display: flex;
+        flex-direction: column;
+    }
+
+    main section:nth-child(1) div:nth-child(2) {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        margin-right: 1em;
+        align-items: flex-start;
+    }
+    
+    main section:nth-child(1) div:nth-child(2) article {
+        width: 45%;        
+    }
+
+    main section:nth-child(1) div:nth-child(2) article div {
+        justify-content: left;
+    }
+
+    main section:nth-child(1) div:nth-child(2) article > p {
+        margin-right: 0.5em;
+    }
+
+    main section:nth-child(1) div:nth-child(2) article div div.lastDivArticle {
+    justify-content: flex-start;
+    padding-right: 10px;
+    align-items: center;
+    }
+
+main section:nth-child(1) div:nth-child(2) article div div.lastDivArticle p:first-child {
+    width: 20%;
+}
+
+main section:nth-child(1) div:nth-child(2) article div div.lastDivArticle p:nth-child(2) {
+    width: 5%;
+}
+
+    /* Main second section and aside */
+
+    #sectionWithArticles article div div.lastDivArticle {
+        justify-content: space-between;
+        padding-right: 10px;
+        align-items: center;
+        width: 90%;
+    }
+
+    #sectionWithArticles article div div.lastDivArticle div > p {
+        width: auto;
+        margin-right: 0.4em;
+    }
+
+}
+
+@media screen and (min-width:1200px) {
+   
+    /* Header */
+
+    header div {
+        padding: 0 3em;
+    }
+
+    header div:nth-child(2) {
+        align-items: center;
+    }
+
+    /* Main */
+    main section:nth-child(1) div:nth-child(2) article {
+        width: 30%;
+    }
+   
+    #sideToSide {
+        position: relative;
+        margin-top: 2em;
+    }
+
+    #sideToSide aside {
+        position: absolute;
+        right: 0;
+        width: 35%;
+        padding-top: 0;
+    }
+
+    #sideToSide section {
+        position: absolute;
+        left: 0;
+        width: 55%;
+        /* margin-top: 2em; */
+    }
 }
